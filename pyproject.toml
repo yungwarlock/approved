@@ -11,6 +11,7 @@ django = "^5.1"
 markdown = "^3.7"
 langchain-google-genai = "^1.0.10"
 langchain = "^0.2.14"
+gunicorn = "^23.0.0"
 
 
 [build-system]
