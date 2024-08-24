@@ -1,6 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Moderustic:wght@300..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.open-sans {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.moderustic {
+  font-family: "Moderustic", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
 
 .info {
   @apply bg-blue-200;
