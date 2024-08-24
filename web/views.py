@@ -7,9 +7,6 @@ from legals.models import CompanyLegal
 def index(request):
     companies = Company.objects.all()
 
-    companies = list(companies) + list(companies) + \
-        list(companies) + list(companies) + list(companies)
-
     return render(request, "index.html", {"companies": companies})
 
 

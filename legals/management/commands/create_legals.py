@@ -22,15 +22,15 @@ class Command(BaseCommand):
         legal = CompanyLegal.objects.get(company=company)
 
         terms_of_service = legal.terms_of_service
-        # legal.governing_law = governing_law_chain.invoke({
-        #     "text": terms_of_service
-        # })
-        # legal.license_grants = license_grants_chain.invoke({
-        #     "text": terms_of_service
-        # })
-        # legal.restrictions = restrictions_chain.invoke({
-        #     "text": terms_of_service
-        # })
+        legal.governing_law = governing_law_chain.invoke({
+            "text": terms_of_service
+        })
+        legal.license_grants = license_grants_chain.invoke({
+            "text": terms_of_service
+        })
+        legal.restrictions = restrictions_chain.invoke({
+            "text": terms_of_service
+        })
         legal.termination = termination_chain.invoke({
             "text": terms_of_service
         })
