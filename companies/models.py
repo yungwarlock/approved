@@ -20,3 +20,17 @@ class Company(models.Model):
     class Meta:
         verbose_name = "company"
         verbose_name_plural = "companies"
+
+
+class CompanyRequest(models.Model):
+    reason = models.TextField()
+    company_website = models.URLField()
+    name = models.CharField(max_length=100)
+    company_name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.company_name} by {self.name}"
+
+    class Meta:
+        verbose_name = "company request"
+        verbose_name_plural = "company requests"

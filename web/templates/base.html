@@ -14,8 +14,13 @@
 </head>
 
 <body class="bg-gray-50">
+  {% include '_messages.html' %}
   <!-- <div class="w-[15vw] border-r"></div> -->
   {% block content %}
+  {% endblock %}
+
+  <script src="{% static 'js/app.js' %}"></script>
+  {% block scripts %}
   {% endblock %}
 </body>
 

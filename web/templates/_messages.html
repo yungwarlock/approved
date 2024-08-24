@@ -1,0 +1,13 @@
+{% if messages %}
+<ul class="flex flex-col">
+  {% for message in messages %}
+  <li class="{{ message.tags }} message-item px-4 md:px-16 py-4 flex items-center justify-between">
+    <span>{{ message }}</span>
+    <svg class="message-delete size-6 cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+      stroke-width="1.5" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+    </svg>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}

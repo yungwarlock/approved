@@ -17,6 +17,9 @@ ALLOWED_HOSTS = ["afripreneur-approved.fly.dev", "localhost"]
 CSRF_TRUSTED_ORIGINS = ["https://*.fly.dev", "https://*.127.0.0.1"]
 
 
+MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
+
+
 # Application definition
 
 INSTALLED_APPS = [
