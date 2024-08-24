@@ -1,19 +1,19 @@
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = Path(os.environ.get("DATA_PATH", BASE_DIR / "data"))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-xl1d^i0)j6v91^%m1kfd^t0s_k_fi!sno%70#11(mwq5*6_3x^"
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY") or "django-insecure-xl1d^i0)j6v91^%m1kfd^t0s_k_fi!sno%70#11(mwq5*6_3x^"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "1") != "0"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["afripreneur-approved.fly.dev", "localhost"]
 
 
 # Application definition
@@ -70,7 +70,7 @@ WSGI_APPLICATION = "approved.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": DATA_DIR / "db.sqlite3",
     }
 }
 

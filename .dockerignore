@@ -1,0 +1,7 @@
+.env
+fly.toml
+.git/
+*.sqlite3
+/__pycache__/
+tailwindcss
+
