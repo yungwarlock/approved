@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Company(models.Model):
+    slug = models.SlugField(max_length=100)
     name = models.CharField(max_length=100)
     about = models.TextField()
 
