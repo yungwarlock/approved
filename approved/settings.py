@@ -14,6 +14,7 @@ SECRET_KEY = os.environ.get(
 DEBUG = os.environ.get("DEBUG", "1") != "0"
 
 ALLOWED_HOSTS = ["afripreneur-approved.fly.dev", "localhost"]
+CSRF_TRUSTED_ORIGINS = ["https://*.fly.dev", "https://*.127.0.0.1"]
 
 
 # Application definition
