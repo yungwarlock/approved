@@ -12,6 +12,8 @@ markdown = "^3.7"
 langchain-google-genai = "^1.0.10"
 langchain = "^0.2.14"
 gunicorn = "^23.0.0"
+wikipedia = "^1.4.0"
+tavily-python = "^0.4.0"
 
 
 [build-system]

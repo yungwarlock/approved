@@ -4,15 +4,15 @@ from django.db import models
 class Company(models.Model):
     slug = models.SlugField(max_length=100)
     name = models.CharField(max_length=100)
-    about = models.TextField()
+    about = models.TextField(null=True)
 
-    date_founded = models.DateField()
+    date_founded = models.DateField(null=True)
 
-    location = models.CharField(max_length=100)
+    location = models.CharField(max_length=100, null=True)
 
-    twitter = models.URLField()
-    website = models.URLField()
-    logo_url = models.URLField()
+    twitter = models.URLField(null=True)
+    website = models.URLField(null=True)
+    logo_url = models.URLField(null=True)
 
     def __str__(self):
         return self.name
