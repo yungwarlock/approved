@@ -1,6 +1,8 @@
 app = "afripreneur-approved"
 primary_region = "ams"
 console_command = "/code/manage.py shell"
+swap_size_mb = 2048
+
 
 [build]
 

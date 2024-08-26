@@ -19,4 +19,10 @@ RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
 
+
+# Copy the entrypoint that will generate Nginx additional configs
+COPY scripts/entrypoint.sh /scripts/entrypoint.sh
+RUN chmod +x /scripts/entrypoint.sh
+ENTRYPOINT ["/scripts/entrypoint.sh"]
+
 CMD ["gunicorn", "--bind", ":8000", "--workers", "2", "approved.wsgi"]
