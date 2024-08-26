@@ -7,6 +7,7 @@ from legals.chains.termination import chain as termination_chain
 from legals.chains.restrictions import chain as restrictions_chain
 from legals.chains.governing_law import chain as governing_law_chain
 from legals.chains.license_grants import chain as license_grants_chain
+from legals.chains.extract_terms_and_conditions import chain as extract_terms_and_conditions_chain, fetch_url
 
 
 class Command(BaseCommand):
@@ -19,9 +20,22 @@ class Command(BaseCommand):
         company_id = options["company"]
 
         company = Company.objects.get(pk=company_id)
-        legal = CompanyLegal.objects.get(company=company)
 
-        terms_of_service = legal.terms_of_service
+        if CompanyLegal.objects.filter(company=company).exists():
+            raise CommandError(
+                "CompanyLegal for %s already exists." %
+                company
+            )
+
+        legal = CompanyLegal()
+        legal.company = company
+
+        terms_of_service_url = extract_terms_and_conditions_chain.invoke({
+            "input": company.name
+        })
+
+        terms_of_service = fetch_url(terms_of_service_url)
+
         legal.governing_law = governing_law_chain.invoke({
             "text": terms_of_service
         })
