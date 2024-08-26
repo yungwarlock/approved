@@ -1,6 +1,20 @@
 import os
 from pathlib import Path
 
+import sentry_sdk
+
+
+sentry_sdk.init(
+    dsn="https://98ffe85a7e4ccdc719297ea76ef4c67c@o4507831170891776.ingest.us.sentry.io/4507831171612672",
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for tracing.
+    traces_sample_rate=1.0,
+    # Set profiles_sample_rate to 1.0 to profile 100%
+    # of sampled transactions.
+    # We recommend adjusting this value in production.
+    profiles_sample_rate=1.0,
+)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = Path(os.environ.get("DATA_PATH", BASE_DIR / "data"))
